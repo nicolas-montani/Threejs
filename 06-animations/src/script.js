@@ -32,24 +32,25 @@ renderer.setSize(sizes.width, sizes.height)
 
 
 // Clock
-//const clock = new THREE.Clock()
-gsap.to(mesh.position, { duration: 1, delay : 1 , x : 2})
-gsap.to(mesh.position, { duration: 1, delay : 2 , x : 0})
+const clock = new THREE.Clock()
+// gsap.to(mesh.position, { duration: 1, delay : 1 , x : 2})
+// gsap.to(mesh.position, { duration: 1, delay : 2 , x : 0})
 
 
 // Animation
 const tick = () => {
     //clock
-    //const elapsedTime = clock.getElapsedTime()
+    const elapsedTime = clock.getElapsedTime()
 
     // Update objects
     //mesh.rotation.y = elapsedTime * Math.PI /4
-    //mesh.position.x = Math.tan(elapsedTime)
+    // mesh.position.x = Math.sin(elapsedTime)
+    // mesh.position.y = Math.cos(elapsedTime)
 
     // Update camera
-    //camera.position.x = Math.sin(elapsedTime)
-    //camera.position.y = Math.cos(elapsedTime)
-    //camera.lookAt(mesh.position)
+    camera.position.x = Math.sin(elapsedTime)
+    camera.position.y = Math.cos(elapsedTime)
+    camera.lookAt(mesh.position)
 
     // render
     renderer.render(scene, camera)
